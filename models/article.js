@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var Schema = mongooose.Schema;
+var Schema = mongoose.Schema;
 
 var ArticleSchema = new Schema({
 	title: {
@@ -13,19 +13,19 @@ var ArticleSchema = new Schema({
 		required: true
 	},
 
-	photo: {
-		//href for photo
-		type: String,
-		required: false
-	},
-	bylines: {
-		type: String,
-		required: false
-	}
-	note: {
-		type:schema.Types.ObjectId,
+	// photo: {
+	// 	//href for photo
+	// 	type: String,
+	// 	required: false
+	// },
+	// bylines: {
+	// 	type: String,
+	// 	required: false
+	// },
+	note: [{
+		type: Schema.Types.ObjectId,
 		ref: "Note"
-	}
+	}]
 });
 
 var Article = mongoose.model("Article", ArticleSchema);
